@@ -100,4 +100,29 @@ export default {
   margin: auto;
   width: 100%;
 }
+
+// Mobile
+@media only screen and (max-width: 800px) {
+  .landing {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0fr 1fr 0fr 1fr;
+    height: 100vh;
+    margin: auto;
+    // background-color: red;
+  }
+  .neon-me {
+    position: absolute;
+    bottom: 0vh;
+
+    width: 40vh;
+  }
+  .project-button {
+    position: absolute;
+    right: 0px;
+    bottom: 35vh;
+    width: 40vw;
+    height: auto;
+  }
+}
 </style>
