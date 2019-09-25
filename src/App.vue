@@ -3,11 +3,11 @@
     <div class="navbar">
       <img
         style="  margin-top: auto;margin-bottom: auto;margin-left: 5px;"
-        src="./assets/logo.svg"
+        src="./assets/logo.png"
         height="50"
       />
     </div>
-    <div class="pages">
+    <div class="pages page1">
       <div class="landing">
         <img class="neon-me" src="./assets/Neon Me.svg" />
         <div></div>
@@ -19,9 +19,9 @@
       </div>
     </div>
 
-    <div class="pages">2</div>
-    <div class="pages">3</div>
-    <div class="pages">4</div>
+    <div class="pages page2"></div>
+    <div class="pages page3"></div>
+    <div class="pages page4"></div>
   </div>
 </template>
 
@@ -53,9 +53,22 @@ export default {
   display: grid;
   height: 100vh;
 
-  background-color: rgb(0, 03, 0);
   color: white;
 }
+
+.page1 {
+  background-color: rgb(0, 0, 0);
+}
+.page2 {
+  background: linear-gradient(to bottom, #000000, #0f2027);
+}
+.page3 {
+  background-color: #0f2027;
+}
+.page4 {
+  background-color: #0f2027;
+}
+
 .landing {
   display: grid;
   grid-template-columns: 30vw 1fr;
