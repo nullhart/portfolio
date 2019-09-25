@@ -1,28 +1,88 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div class="navbar">
+      <img
+        style="  margin-top: auto;margin-bottom: auto;margin-left: 5px;"
+        src="./assets/logo.svg"
+        height="50"
+      />
+    </div>
+    <div class="pages">
+      <div class="landing">
+        <img class="neon-me" src="./assets/Neon Me.svg" />
+        <div></div>
+
+        <img class="name" src="./assets/name.svg" />
+
+        <div></div>
+        <img class="project-button" src="./assets/NeonCard.svg" />
+      </div>
+    </div>
+
+    <div class="pages">2</div>
+    <div class="pages">3</div>
+    <div class="pages">4</div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'app',
-  components: {
-    HelloWorld
-  }
-}
+  name: "app",
+  components: {}
+};
 </script>
 
 <style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.app {
+  display: grid;
+  grid-template-rows: repeat(4, 100vh);
+}
+
+.navbar {
+  position: fixed;
+  display: flex;
+  top: 0px;
+  width: 100vw;
+  height: 60px;
+
+  background: rgba(196, 196, 196, 0.2);
+}
+
+.pages {
+  display: grid;
+  height: 100vh;
+
+  background-color: rgb(0, 03, 0);
+  color: white;
+}
+.landing {
+  display: grid;
+  grid-template-columns: 30vw 1fr;
+  height: 100vh;
+  grid-template-rows: 60fr 40fr;
+  // background-color: red;
+}
+
+.neon-me {
+  position: absolute;
+  bottom: 0px;
+  width: 30vw;
+}
+.project-button {
+  display: grid;
+  margin: auto;
+}
+
+.project-button:hover {
+  filter: drop-shadow(0 0 30px #09fbd3);
+}
+.project-button:active {
+  filter: drop-shadow(0 0 10px #09fbd3);
+}
+
+.name {
+  display: grid;
+  margin: auto;
+  width: 100%;
 }
 </style>
