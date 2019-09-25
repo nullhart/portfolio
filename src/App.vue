@@ -44,7 +44,8 @@ export default {
   top: 0px;
   width: 100vw;
   height: 60px;
-
+  backdrop-filter: blur(10px);
+  z-index: 1;
   background: rgba(196, 196, 196, 0.2);
 }
 
@@ -68,6 +69,7 @@ export default {
   bottom: 0px;
   width: 30vw;
 }
+
 .project-button {
   display: grid;
   margin: auto;
