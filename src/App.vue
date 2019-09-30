@@ -9,13 +9,15 @@
     </div>
     <div class="pages page1">
       <div class="landing">
-        <img class="neon-me" src="./assets/Neon Me.svg" />
-        <div></div>
-
-        <img class="name" src="./assets/name.svg" />
+        <img svg-inline class="neon-me glow" id="neon-me" src="./assets/Neon Me.svg" />
 
         <div></div>
-        <img class="project-button" src="./assets/NeonCard.svg" />
+
+        <img svg-inline class="name glow" id="name" style="margin: auto;" src="./assets/name.svg" />
+
+        <div></div>
+
+        <img svg-inline class="project-button glow" id="project-button" src="./assets/NeonCard.svg" />
       </div>
     </div>
 
@@ -26,9 +28,31 @@
 </template>
 
 <script>
+import anime from "animejs/lib/anime.es.js";
+
 export default {
   name: "app",
-  components: {}
+  components: {},
+  mounted() {
+    var neonMe = document.querySelectorAll("path");
+
+    for (var i = 0; i < neonMe.length; i++) {
+      var pathEl = neonMe[i];
+
+      var offset = anime.setDashoffset(pathEl);
+      pathEl.setAttribute("stroke-dashoffset", offset);
+      anime({
+        targets: pathEl,
+        strokeDashoffset: [offset, 0],
+        duration: 3000,
+        delay: 200,
+        loop: false,
+        direction: "alternate",
+        easing: "easeInOutSine",
+        autoplay: true
+      });
+    }
+  }
 };
 </script>
 
@@ -52,10 +76,13 @@ export default {
 .pages {
   display: grid;
   height: 100vh;
-
   color: white;
 }
 
+.glow {
+  filter: drop-shadow(0px 0px 2px #09fbd3) drop-shadow(0px 0px 10px #09fbd388)
+    drop-shadow(0px 0px 15px #09fbd356);
+}
 .page1 {
   background-color: rgb(0, 0, 0);
 }
@@ -67,6 +94,9 @@ export default {
 }
 .page4 {
   background-color: #0f2027;
+}
+svg {
+  background-color: transparent;
 }
 
 .landing {
@@ -99,10 +129,12 @@ export default {
   display: grid;
   margin: auto;
   width: 100%;
+
+  stroke-dasharray: 200px;
 }
 
 // Mobile
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 700px) {
   .landing {
     display: grid;
     grid-template-columns: 1fr;
@@ -111,16 +143,19 @@ export default {
     margin: auto;
     // background-color: red;
   }
+  .name {
+    width: 90vw;
+  }
   .neon-me {
     position: absolute;
     bottom: 0vh;
-
+    left: 0px;
     width: 40vh;
   }
   .project-button {
     position: absolute;
-    right: 0px;
-    bottom: 35vh;
+    right: 5px;
+    bottom: 30vh;
     width: 40vw;
     height: auto;
   }
