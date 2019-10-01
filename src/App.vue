@@ -2,7 +2,7 @@
   <div id="app">
     <div class="navbar">
       <img
-        style="  margin-top: auto;margin-bottom: auto;margin-left: 5px;"
+        style="align-items: flex-start;margin-top: auto;margin-bottom: auto;padding-left: 5px;"
         src="./assets/logo.png"
         height="50"
       />
@@ -88,20 +88,14 @@ export default {
 </script>
 
 <style lang="scss">
-.app {
-  display: grid;
-  grid-template-rows: repeat(4, 100vh);
-}
-
 .navbar {
+  z-index: 1;
   position: fixed;
   display: flex;
   top: 0px;
   width: 100vw;
   height: 60px;
   backdrop-filter: blur(10px);
-  z-index: 1;
-  background: rgba(196, 196, 196, 0.2);
 }
 
 .pages {
@@ -134,7 +128,9 @@ svg {
   display: grid;
   grid-template-columns: 30vw 1fr;
   height: 100vh;
+
   grid-template-rows: 60fr 40fr;
+  z-index: 0;
   // background-color: red;
 }
 
