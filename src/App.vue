@@ -9,15 +9,18 @@
     </div>
     <div class="pages page1">
       <div class="landing">
-        <img svg-inline class="neon-me glow" id="neon-me" src="./assets/Neon Me.svg" />
+        <div class="neon-me glow" id="person">
+          <img svg-inline src="./assets/Neon Me.svg" />
+        </div>
+        <div></div>
+        <div class="name glow" id="name">
+          <img svg-inline style="margin: auto;" class="name" src="./assets/name.svg" />
+        </div>
 
         <div></div>
-
-        <img svg-inline class="name glow" id="name" style="margin: auto;" src="./assets/name.svg" />
-
-        <div></div>
-
-        <img svg-inline class="project-button glow" id="project-button" src="./assets/NeonCard.svg" />
+        <div style="outline: none;" id="project-button">
+          <img class="project-button glow" svg-inline src="./assets/NeonCard.svg" />
+        </div>
       </div>
     </div>
 
@@ -34,24 +37,52 @@ export default {
   name: "app",
   components: {},
   mounted() {
-    var neonMe = document.querySelectorAll("path");
+    this.$nextTick(() => {
+      // container IS finished rendering to the DOM
 
-    for (var i = 0; i < neonMe.length; i++) {
-      var pathEl = neonMe[i];
+      const neonArray = [
+        {
+          element: document.getElementById("person").querySelectorAll("path"),
+          duration: 5000,
+          delay: 200
+        },
+        {
+          element: document.getElementById("name").querySelectorAll("path"),
+          duration: 10000,
+          delay: 200
+        },
+        {
+          element: document
+            .getElementById("project-button")
+            .querySelectorAll("path"),
+          duration: 8000,
+          delay: 200
+        }
+      ];
 
-      var offset = anime.setDashoffset(pathEl);
-      pathEl.setAttribute("stroke-dashoffset", offset);
-      anime({
-        targets: pathEl,
-        strokeDashoffset: [offset, 0],
-        duration: 3000,
-        delay: 200,
-        loop: false,
-        direction: "alternate",
-        easing: "easeInOutSine",
-        autoplay: true
-      });
-    }
+      function animateLines(elementArray) {
+        elementArray.forEach(element => {
+          for (var i = 0; i < element.element.length; i++) {
+            var pathEl = element.element[i];
+
+            var offset = anime.setDashoffset(pathEl);
+            pathEl.setAttribute("stroke-dashoffset", offset);
+            anime({
+              targets: pathEl,
+              strokeDashoffset: [offset, 0],
+              duration: element.duration,
+              delay: element.delay,
+              loop: false,
+              direction: "alternate",
+              easing: "easeInOutSine",
+              autoplay: true
+            });
+          }
+        });
+      }
+
+      animateLines(neonArray);
+    });
   }
 };
 </script>
@@ -111,26 +142,29 @@ svg {
   position: absolute;
   bottom: 0px;
   width: 30vw;
+  outline: none;
+  pointer-events: none;
 }
 
 .project-button {
   display: grid;
   margin: auto;
+  outline: none;
 }
 
 .project-button:hover {
-  filter: drop-shadow(0 0 30px #09fbd3);
+  filter: drop-shadow(0px 0px 2px #82fae600);
 }
 .project-button:active {
-  filter: drop-shadow(0 0 10px #09fbd3);
+  filter: drop-shadow(0px 0px 2px #09fbd3) drop-shadow(0px 0px 10px #09fbd318)
+    drop-shadow(0px 0px 15px #09fbd300);
 }
 
 .name {
   display: grid;
   margin: auto;
-  width: 100%;
-
-  stroke-dasharray: 200px;
+  width: 90%;
+  pointer-events: none;
 }
 
 // Mobile
