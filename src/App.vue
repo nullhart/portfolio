@@ -194,4 +194,31 @@ svg {
     height: auto;
   }
 }
+
+@media only screen and (min-height: 1200px) {
+  .landing {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0fr 1fr 0fr 1fr;
+    height: 100vh;
+    margin: auto;
+    // background-color: red;
+  }
+  .name {
+    width: 90vw;
+  }
+  .neon-me {
+    position: absolute;
+    bottom: 0vh;
+    left: 0px;
+    width: 40vh;
+  }
+  .project-button {
+    position: absolute;
+    right: 5px;
+    bottom: 30vh;
+    width: 40vw;
+    height: auto;
+  }
+}
 </style>
