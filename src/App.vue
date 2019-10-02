@@ -3,7 +3,7 @@
     <div class="navbar">
       <img
         style="align-items: flex-start;margin-top: auto;margin-bottom: auto;padding-left: 5px;"
-        src="./assets/logo.png"
+        src="./assets/logo.webp"
         height="50"
       />
     </div>
