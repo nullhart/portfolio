@@ -48,14 +48,14 @@ export default {
         },
         {
           element: document.getElementById("name").querySelectorAll("path"),
-          duration: 10000,
+          duration: 4000,
           delay: 200
         },
         {
           element: document
             .getElementById("project-button")
             .querySelectorAll("path"),
-          duration: 8000,
+          duration: 7000,
           delay: 200
         }
       ];
