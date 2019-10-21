@@ -3,9 +3,10 @@
     <div class="navbar">
       <img
         style="align-items: flex-start;margin-top: auto;margin-bottom: auto;padding-left: 5px;"
-        src="./assets/logo.webp"
+        src="./assets/logo.png"
         height="50"
       />
+
     </div>
     <div class="pages page1">
       <div class="landing">
@@ -180,7 +181,7 @@ svg {
     position: absolute;
     bottom: 0vh;
     left: 0px;
-    width: 40vh;
+    width: 38vh;
   }
   .project-button {
     position: absolute;
